@@ -1,0 +1,45 @@
+@mixin fontSize {
+  font-size: clamp(1rem, 2.5vw, 2rem);
+}
+
+#taskCreate {
+  background: darkred;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+#taskCreateInputBox {
+  background: white;
+  border-radius: 20px 4px 4px 20px;
+  padding: 0 7px 0 17px;
+  margin: 0 2px;
+
+  > * {
+    outline: none;
+    border: none;
+    background: none;
+    @include fontSize();
+  }
+
+  input[type="text"] {
+    padding: 7px 2px;
+  }
+
+  button {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+#taskAddCreateButton {
+  border: none;
+  border-radius: 4px 20px 20px 4px;
+  margin: 0 2px;
+  padding: 0 10px;
+  @include fontSize();
+  &:hover {
+    cursor: pointer;
+  }
+}

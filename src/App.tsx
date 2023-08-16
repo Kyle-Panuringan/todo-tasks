@@ -1,5 +1,11 @@
+import TaskCreate from "./components/TaskCreate/TaskCreate";
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <>
+      <TaskCreate />
+    </>
+  );
 };
 
 export default App;
