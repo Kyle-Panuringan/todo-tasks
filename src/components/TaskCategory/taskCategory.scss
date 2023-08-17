@@ -1,0 +1,18 @@
+@mixin fontSize {
+  font-size: clamp(1rem, 1vw, 1.5rem);
+}
+
+#taskCategory {
+  text-align: center;
+  > * {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    color: white;
+    background: darkred;
+    min-width: 150px;
+    border-radius: 10px;
+    @include fontSize();
+    cursor: pointer;
+  }
+}
