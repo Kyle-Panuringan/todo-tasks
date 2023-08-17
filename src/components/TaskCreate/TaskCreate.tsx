@@ -1,15 +1,24 @@
 import { useState } from "react";
 import "./taskCreate.scss";
 
-const TaskCreate = () => {
+interface Props {
+  taskAdd: (data: string) => void;
+}
+
+const TaskCreate = ({ taskAdd }: Props) => {
   const [taskCreateValue, setTaskCreateValue] = useState("");
 
   const handleTaskCreateValueClear = () => {
     setTaskCreateValue("");
   };
 
+  const handleTaskCreateValue = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    taskAdd(taskCreateValue);
+  };
+
   return (
-    <form id="taskCreate">
+    <form id="taskCreate" onSubmit={handleTaskCreateValue}>
       <div id="taskCreateInputBox">
         <input
           type="text"
