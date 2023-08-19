@@ -18,6 +18,10 @@ const getTasksInitialState = () => {
 const App = () => {
   const [tasks, setTasks] = useState<taskProps[]>(getTasksInitialState);
   const [taskCategoryPending, setTaskCategoryPending] = useState(true);
+  const [taskCount, setTaskCount] = useState({
+    pending: 0,
+    completed: 0,
+  });
 
   const taskCategory = (category: string) => {
     if (category === "Pending") {
@@ -57,12 +61,17 @@ const App = () => {
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    setTaskCount({
+      pending: tasks.filter((task) => task.isComplete === false).length,
+      completed: tasks.filter((task) => task.isComplete === true).length,
+    });
   }, [tasks]);
 
   return (
     <>
       <TaskCreate taskAdd={taskAdd} />
       <TaskCategory
+        taskCount={taskCount}
         taskCategory={taskCategory}
         taskCategoryPending={taskCategoryPending}
       />

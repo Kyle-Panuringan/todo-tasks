@@ -1,13 +1,18 @@
 import "./taskCategory.scss";
 
 interface Props {
+  taskCount: { pending: number; completed: number };
   taskCategory: (category: string) => void;
   taskCategoryPending: boolean;
 }
 
-const TaskCategory = ({ taskCategory, taskCategoryPending }: Props) => {
-  let pending = taskCategoryPending ? "Active" : "";
-  let complete = taskCategoryPending ? "" : "Active";
+const TaskCategory = ({
+  taskCategory,
+  taskCategoryPending,
+  taskCount,
+}: Props) => {
+  let pending = taskCategoryPending ? "" : "Active";
+  let complete = taskCategoryPending ? "Active" : "";
 
   return (
     <div id="taskCategory">
@@ -17,6 +22,7 @@ const TaskCategory = ({ taskCategory, taskCategoryPending }: Props) => {
         className={pending}
       >
         Pending Tasks
+        <span className="badge">{taskCount.pending}</span>
       </button>
       <button
         type="button"
@@ -24,6 +30,7 @@ const TaskCategory = ({ taskCategory, taskCategoryPending }: Props) => {
         className={complete}
       >
         Completed Tasks
+        <span className="badge">{taskCount.completed}</span>
       </button>
     </div>
   );

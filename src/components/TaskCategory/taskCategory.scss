@@ -4,8 +4,9 @@
 
 #taskCategory {
   text-align: center;
-  > * {
-    margin: 10px;
+  button {
+    position: relative;
+    margin: 17px 17px;
     padding: 10px;
     border: none;
     color: white;
@@ -21,4 +22,18 @@
   background: none !important;
   border: 2px solid darkred !important;
   color: darkred !important;
+}
+
+.badge {
+  position: absolute;
+  background: gray;
+  top: -12px;
+  right: -15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 30px;
+  height: 30px;
 }
