@@ -3,7 +3,7 @@ import TaskCreate from "./components/TaskCreate/TaskCreate";
 import { v4 } from "uuid";
 import TaskCategory from "./components/TaskCategory/TaskCategory";
 
-interface taskProps {
+export interface taskProps {
   id: string;
   name: string;
   isComplete: boolean;
