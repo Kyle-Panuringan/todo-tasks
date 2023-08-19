@@ -22,7 +22,9 @@ const TaskCategory = ({
         className={pending}
       >
         Pending Tasks
-        <span className="badge">{taskCount.pending}</span>
+        <span className="badge">
+          {taskCount.pending > 99 ? "+99" : taskCount.pending}
+        </span>
       </button>
       <button
         type="button"
@@ -30,7 +32,9 @@ const TaskCategory = ({
         className={complete}
       >
         Completed Tasks
-        <span className="badge">{taskCount.completed}</span>
+        <span className="badge">
+          {taskCount.completed > 99 ? "+99" : taskCount.completed}
+        </span>
       </button>
     </div>
   );
