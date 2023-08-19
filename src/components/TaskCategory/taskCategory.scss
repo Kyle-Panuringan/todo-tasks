@@ -16,3 +16,9 @@
     cursor: pointer;
   }
 }
+
+.Active {
+  background: none !important;
+  border: 2px solid darkred !important;
+  color: darkred !important;
+}

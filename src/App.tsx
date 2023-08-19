@@ -62,7 +62,10 @@ const App = () => {
   return (
     <>
       <TaskCreate taskAdd={taskAdd} />
-      <TaskCategory taskCategory={taskCategory} />
+      <TaskCategory
+        taskCategory={taskCategory}
+        taskCategoryPending={taskCategoryPending}
+      />
       <TaskList
         tasks={tasks}
         taskCategoryPending={taskCategoryPending}

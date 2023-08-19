@@ -19,7 +19,7 @@ const TaskList = ({
   return (
     <div>
       {tasks
-        .filter((task) => task.isComplete === taskCategoryPending)
+        .filter((task) => task.isComplete !== taskCategoryPending)
         .map((task) => (
           <TaskItem
             key={task.id}
