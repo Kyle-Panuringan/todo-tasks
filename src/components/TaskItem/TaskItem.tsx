@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { taskProps } from "../../App";
 
 interface Props {
   id: string;

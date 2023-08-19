@@ -17,6 +17,15 @@ const getTasksInitialState = () => {
 
 const App = () => {
   const [tasks, setTasks] = useState<taskProps[]>(getTasksInitialState);
+  const [taskCategoryPending, setTaskCategoryPending] = useState(true);
+
+  const taskCategory = (category: string) => {
+    if (category === "Pending") {
+      setTaskCategoryPending(true);
+    } else {
+      setTaskCategoryPending(false);
+    }
+  };
 
   const taskAdd = (data: string) => {
     setTasks([...tasks, { id: v4(), name: data, isComplete: false }]);
@@ -53,9 +62,10 @@ const App = () => {
   return (
     <>
       <TaskCreate taskAdd={taskAdd} />
-      <TaskCategory />
+      <TaskCategory taskCategory={taskCategory} />
       <TaskList
         tasks={tasks}
+        taskCategoryPending={taskCategoryPending}
         taskDelete={taskDelete}
         taskEdit={taskEdit}
         taskIsComplete={taskIsComplete}
