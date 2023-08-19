@@ -5,9 +5,10 @@ interface Props {
   tasks: taskProps[];
   taskEdit: (id: string, newTaskName: string) => void;
   taskDelete: (id: string) => void;
+  taskIsComplete: (id: string) => void;
 }
 
-const TaskList = ({ tasks, taskDelete, taskEdit }: Props) => {
+const TaskList = ({ tasks, taskDelete, taskEdit, taskIsComplete }: Props) => {
   return (
     <div>
       {tasks.map((task) => (
@@ -16,6 +17,7 @@ const TaskList = ({ tasks, taskDelete, taskEdit }: Props) => {
           {...task}
           taskDelete={taskDelete}
           taskEdit={taskEdit}
+          taskIsComplete={taskIsComplete}
         />
       ))}
     </div>

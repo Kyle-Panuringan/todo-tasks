@@ -7,9 +7,17 @@ interface Props {
   isComplete: boolean;
   taskEdit: (id: string, newTaskName: string) => void;
   taskDelete: (id: string) => void;
+  taskIsComplete: (id: string) => void;
 }
 
-const TaskItem = ({ id, name, isComplete, taskEdit, taskDelete }: Props) => {
+const TaskItem = ({
+  id,
+  name,
+  isComplete,
+  taskEdit,
+  taskDelete,
+  taskIsComplete,
+}: Props) => {
   const [taskName, setTaskName] = useState(name);
   const [editOFF, setEditOFF] = useState(true);
 
@@ -23,7 +31,13 @@ const TaskItem = ({ id, name, isComplete, taskEdit, taskDelete }: Props) => {
 
   return (
     <form>
-      <input type="checkbox" />
+      <input
+        type="checkbox"
+        value={name}
+        name={name}
+        onChange={() => taskIsComplete(id)}
+        checked={isComplete}
+      />
       <input
         type="text"
         value={taskName}

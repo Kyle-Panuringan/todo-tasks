@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import TaskCreate from "./components/TaskCreate/TaskCreate";
 import { v4 } from "uuid";
+import TaskCreate from "./components/TaskCreate/TaskCreate";
 import TaskCategory from "./components/TaskCategory/TaskCategory";
 import TaskList from "./components/TaskList/TaskList";
 
@@ -21,7 +21,7 @@ const App = () => {
   const taskAdd = (data: string) => {
     setTasks([...tasks, { id: v4(), name: data, isComplete: false }]);
   };
-  console.log(tasks.map((task) => task.name));
+
   const taskEdit = (id: string, newTaskName: string) => {
     const editedTasks = tasks.map((task) => {
       if (task.id === id) {
@@ -36,6 +36,16 @@ const App = () => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
+  const taskIsComplete = (id: string) => {
+    const editedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        task.isComplete = !task.isComplete;
+      }
+      return task;
+    });
+    setTasks(editedTasks);
+  };
+
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -44,7 +54,12 @@ const App = () => {
     <>
       <TaskCreate taskAdd={taskAdd} />
       <TaskCategory />
-      <TaskList tasks={tasks} taskDelete={taskDelete} taskEdit={taskEdit} />
+      <TaskList
+        tasks={tasks}
+        taskDelete={taskDelete}
+        taskEdit={taskEdit}
+        taskIsComplete={taskIsComplete}
+      />
     </>
   );
 };
