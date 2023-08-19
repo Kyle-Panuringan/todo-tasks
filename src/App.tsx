@@ -21,6 +21,16 @@ const App = () => {
   const taskAdd = (data: string) => {
     setTasks([...tasks, { id: v4(), name: data, isComplete: false }]);
   };
+  console.log(tasks.map((task) => task.name));
+  const taskEdit = (id: string, newTaskName: string) => {
+    const editedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        task.name = newTaskName;
+      }
+      return task;
+    });
+    setTasks(editedTasks);
+  };
 
   const taskDelete = (id: string) => {
     setTasks(tasks.filter((task) => task.id !== id));
@@ -34,7 +44,7 @@ const App = () => {
     <>
       <TaskCreate taskAdd={taskAdd} />
       <TaskCategory />
-      <TaskList tasks={tasks} taskDelete={taskDelete} />
+      <TaskList tasks={tasks} taskDelete={taskDelete} taskEdit={taskEdit} />
     </>
   );
 };

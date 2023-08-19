@@ -5,11 +5,21 @@ interface Props {
   id: string;
   name: string;
   isComplete: boolean;
+  taskEdit: (id: string, newTaskName: string) => void;
   taskDelete: (id: string) => void;
 }
 
-const TaskItem = ({ id, name, isComplete, taskDelete }: Props) => {
+const TaskItem = ({ id, name, isComplete, taskEdit, taskDelete }: Props) => {
   const [taskName, setTaskName] = useState(name);
+  const [editOFF, setEditOFF] = useState(true);
+
+  const handleEdit = (id: string, newTaskName: string) => {
+    if (editOFF) setEditOFF(false);
+    if (!editOFF) {
+      taskEdit(id, newTaskName);
+      setEditOFF(true);
+    }
+  };
 
   return (
     <form>
@@ -18,8 +28,11 @@ const TaskItem = ({ id, name, isComplete, taskDelete }: Props) => {
         type="text"
         value={taskName}
         onChange={(e) => setTaskName(e.target.value)}
+        disabled={editOFF}
       />
-      <button type="button">Edit</button>
+      <button type="button" onClick={() => handleEdit(id, taskName)}>
+        {editOFF ? "Edit" : "Save"}
+      </button>
       <button type="button" onClick={() => taskDelete(id)}>
         Delete
       </button>
