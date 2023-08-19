@@ -6,8 +6,8 @@
   border-radius: 7px;
   margin-bottom: 4px;
   > * {
-    font-size: clamp(1rem, 2vw, 2rem);
-    min-height: 50px;
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    min-height: 37px;
   }
   button {
     display: flex;
@@ -16,12 +16,12 @@
     &:hover {
       cursor: pointer;
     }
-    margin: 0 2px;
+    margin: 4px 2px;
   }
   .left-buttons {
     border: none;
     background: none;
-    margin: 7px;
+    margin: 0 7px;
   }
   .right-buttons {
     background: none;

@@ -16,3 +16,25 @@
   height: 0px;
   margin: 0 50px 20px 50px;
 }
+
+@media (max-width: 510px) {
+  #taskList {
+    margin: 0 0 20px 0;
+  }
+  #taskItem {
+    .left-buttons {
+      border: none;
+      background: none;
+      margin: 0 7px;
+    }
+    .right-buttons {
+      background: none;
+      border: 3px solid darkred;
+      border-radius: 10px;
+      padding: 2px;
+    }
+    input[type="text"] {
+      padding: 0 7px;
+    }
+  }
+}
