@@ -26,7 +26,10 @@
 
 .badge {
   position: absolute;
-  background: gray;
+  color: darkred;
+  border: 2px solid darkred;
+  background: white;
+  font-weight: bolder;
   top: -12px;
   right: -15px;
   border-radius: 50%;

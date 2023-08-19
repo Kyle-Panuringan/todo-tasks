@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { AiFillSave, AiFillEdit, AiFillDelete } from "react-icons/ai";
+import { ImCheckboxUnchecked, ImCheckboxChecked } from "react-icons/im";
 import "./taskItem.scss";
 
 interface Props {
@@ -36,24 +38,32 @@ const TaskItem = ({
       }}
       id="taskItem"
     >
-      <input
-        type="checkbox"
-        value={name}
-        name={name}
-        onChange={() => taskIsComplete(id)}
-        checked={isComplete}
-      />
+      <button
+        type="button"
+        onClick={() => taskIsComplete(id)}
+        className="left-buttons"
+      >
+        {isComplete ? <ImCheckboxChecked /> : <ImCheckboxUnchecked />}
+      </button>
       <input
         type="text"
         value={taskName}
         onChange={(e) => setTaskName(e.target.value)}
         disabled={editOFF}
       />
-      <button type="button" onClick={() => handleEdit(id, taskName)}>
-        {editOFF ? "Edit" : "Save"}
+      <button
+        type="button"
+        onClick={() => handleEdit(id, taskName)}
+        className="right-buttons"
+      >
+        {editOFF ? <AiFillEdit /> : <AiFillSave />}
       </button>
-      <button type="button" onClick={() => taskDelete(id)}>
-        Delete
+      <button
+        type="button"
+        onClick={() => taskDelete(id)}
+        className="right-buttons"
+      >
+        <AiFillDelete />
       </button>
     </form>
   );

@@ -1,4 +1,13 @@
 #taskList {
   text-align: center;
-  background: red;
+  // background: gray;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#emptyM {
+  font-size: clamp(1rem, 3vw, 4rem);
+  text-transform: uppercase;
+  font-weight: bolder;
+  padding: 20px 0;
 }

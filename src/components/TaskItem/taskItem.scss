@@ -1,5 +1,39 @@
 #taskItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid darkred;
+  border-radius: 7px;
+  margin-bottom: 4px;
   > * {
-    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-size: clamp(1rem, 2vw, 2rem);
+    min-height: 50px;
+  }
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      cursor: pointer;
+    }
+    margin: 0 2px;
+  }
+  .left-buttons {
+    border: none;
+    background: none;
+    margin: 7px;
+  }
+  .right-buttons {
+    background: none;
+    border: 3px solid darkred;
+    border-radius: 10px;
+    padding: 7px;
+  }
+  input[type="text"] {
+    color: black;
+    padding: 0 10px;
+    background: none;
+    border: 3px solid darkred;
+    border-radius: 4px;
   }
 }
