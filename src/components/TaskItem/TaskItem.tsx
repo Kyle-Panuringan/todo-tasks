@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./taskItem.scss";
 
 interface Props {
   id: string;
@@ -29,7 +30,12 @@ const TaskItem = ({
   };
 
   return (
-    <form>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+      id="taskItem"
+    >
       <input
         type="checkbox"
         value={name}

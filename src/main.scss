@@ -3,3 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+#App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#taskList {
+  background: green;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  height: 0px;
+  margin: 0 50px 20px 50px;
+}

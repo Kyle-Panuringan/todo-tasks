@@ -68,7 +68,7 @@ const App = () => {
   }, [tasks]);
 
   return (
-    <>
+    <div id="App">
       <TaskCreate taskAdd={taskAdd} />
       <TaskCategory
         taskCount={taskCount}
@@ -82,7 +82,7 @@ const App = () => {
         taskEdit={taskEdit}
         taskIsComplete={taskIsComplete}
       />
-    </>
+    </div>
   );
 };
 

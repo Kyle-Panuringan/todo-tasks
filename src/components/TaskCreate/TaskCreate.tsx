@@ -29,6 +29,7 @@ const TaskCreate = ({ taskAdd }: Props) => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setTaskCreateValue(e.target.value)
           }
+          required
         />
         <button
           type="button"

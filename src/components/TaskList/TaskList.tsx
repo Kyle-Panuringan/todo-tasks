@@ -1,6 +1,6 @@
 import { taskProps } from "../../App";
 import TaskItem from "../TaskItem/TaskItem";
-
+import "./taskList.scss";
 interface Props {
   tasks: taskProps[];
   taskCategoryPending: boolean;
@@ -17,7 +17,9 @@ const TaskList = ({
   taskIsComplete,
 }: Props) => {
   return (
-    <div>
+    <div id="taskList">
+      {tasks.filter((task) => task.isComplete !== taskCategoryPending)
+        .length === 0 && <p>Empty</p>}
       {tasks
         .filter((task) => task.isComplete !== taskCategoryPending)
         .map((task) => (
