@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import TaskCreate from "./components/TaskCreate/TaskCreate";
 import { v4 } from "uuid";
 import TaskCategory from "./components/TaskCategory/TaskCategory";
+import TaskList from "./components/TaskList/TaskList";
 
 export interface taskProps {
   id: string;
@@ -21,6 +22,10 @@ const App = () => {
     setTasks([...tasks, { id: v4(), name: data, isComplete: false }]);
   };
 
+  const taskDelete = (id: string) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -29,6 +34,7 @@ const App = () => {
     <>
       <TaskCreate taskAdd={taskAdd} />
       <TaskCategory />
+      <TaskList tasks={tasks} taskDelete={taskDelete} />
     </>
   );
 };
