@@ -10,7 +10,9 @@
     padding: 10px;
     border: none;
     color: white;
-    background: darkred;
+    background: #343a40;
+    border: 4px solid #2f343a;
+    box-shadow: 0px 0px 10px #222529;
     min-width: 150px;
     border-radius: 10px;
     @include fontSize();
@@ -20,15 +22,16 @@
 
 .Active {
   background: none !important;
-  border: 2px solid darkred !important;
-  color: darkred !important;
+  border: 2px solid #2f343a !important;
+  color: #ababab !important;
+  box-shadow: 0px 0px 5px #222529 !important;
 }
 
 .badge {
   position: absolute;
-  color: darkred;
-  border: 2px solid darkred;
-  background: white;
+  color: white;
+  border: 4px solid #2f343a;
+  background: #343a40;
   font-weight: bolder;
   top: -12px;
   right: -15px;
